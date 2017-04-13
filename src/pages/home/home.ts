@@ -7,8 +7,24 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  items = [];
 
+  constructor() {
+    for (let i = 0; i < 30; i++) {
+      this.items.push( this.items.length );
+    }
   }
 
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 30; i++) {
+        this.items.push( this.items.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+  }
 }

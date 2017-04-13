@@ -3,24 +3,36 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>首页</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
-  <ion-slides [loop]="true">
+<ion-content>
+  <ion-slides class="slides" [loop]="true" >
 
-    <ion-slide >
+    <ion-slide>
       <h2>Slide 1</h2>
     </ion-slide>
 
-    <ion-slide >
+    <ion-slide>
       <h2>Slide 2</h2>
     </ion-slide>
 
-    <ion-slide >
+    <ion-slide>
       <h2>Slide 3</h2>
     </ion-slide>
 
   </ion-slides>
+
+  <ion-list>
+    <ion-item *ngFor="let i of items">
+      
+      {{i}}
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
