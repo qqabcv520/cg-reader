@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RestangularModule} from 'ng2-restangular';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+
+    RestangularModule.forRoot(RestangularConfigFactory),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,3 +35,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ]
 })
 export class AppModule {}
+
+// Function for settting the default restangular configuration
+export function RestangularConfigFactory (RestangularProvider) {
+  RestangularProvider.setBaseUrl('http://192.168.1.130:8080/myblog');
+}
+
+
