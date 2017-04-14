@@ -25,12 +25,12 @@
   </ion-slides>
 
   <ion-list>
-    <ion-item *ngFor="let article of articles">
+    <ion-item class="article-item" *ngFor="let article of articles">
 
+      <h2 >{{article.title}}</h2>
       <ion-thumbnail item-right>
-        <img src="../assets/img/slide.jpg">
+        <img *ngIf="article.titleImg" [src]="article.titleImg">
       </ion-thumbnail>
-      <h2 class="">{{article.title}}</h2>
 
     </ion-item>
   </ion-list>

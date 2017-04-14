@@ -1,15 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Restangular} from "ng2-restangular/dist/esm/src";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor(private restangular: Restangular) {
-    this.load();
-  }
 
 
   /**
@@ -35,9 +32,18 @@ export class HomePage {
    */
   isOver = false;
 
+
+  constructor(private restangular: Restangular) {
+
+  }
+
+  ngOnInit(): void {
+    this.load();
+  }
+
   /**
    * 加载数据
-   * @returns {Promise<T>}
+   * @returns {Promise}
    */
   load() {
 
@@ -72,6 +78,9 @@ export class HomePage {
   open(id: number) {
 
   }
+
+
+
 }
 
 

@@ -45,7 +45,7 @@ import { RestangularModule} from 'ng2-restangular';
 })
 export class AppModule {}
 
-// Function for settting the default restangular configuration
+// 设置Restangular默认设置
 export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.setBaseUrl('http://192.168.1.130:8080/myblog');
 }
