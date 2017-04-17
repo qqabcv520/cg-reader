@@ -1,39 +1,36 @@
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>注册</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>注册</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <form>
-    <ion-list inset>
-      <ion-item>
-        <ion-label>
-          <ion-icon ios="ios-person" md="md-person"></ion-icon>
-        </ion-label>
-        <ion-input placeholder="请输入您的账号" type="text"></ion-input>
-      </ion-item>
+    <form (submit)="doRegister()">
+        <ion-list inset>
 
-      <ion-item>
-        <ion-label>
-          <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
-        </ion-label>
-        <ion-input placeholder="请输入您的密码" type="password"></ion-input>
-      </ion-item>
 
-    </ion-list>
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-person" md="md-person"></ion-icon>
+                </ion-label>
+                <ion-input placeholder="请输入您的账号" type="text" [(ngModel)]="account.username" name="username"></ion-input>
+            </ion-item>
 
-    <ion-grid padding-left padding-right>
-      <ion-row justify-content-around>
-        <button col-5 ion-button color="dark" clear>已有账号</button>
-        <button col-5 ion-button color="secondary">注册</button>
-      </ion-row>
-    </ion-grid>
-  </form>
+            <ion-item>
+                <ion-label>
+                    <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+                </ion-label>
+                <ion-input placeholder="请输入您的密码" type="password" [(ngModel)]="account.password"
+                           name="password"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-grid padding>
+            <button ion-button  block>注册</button>
+        </ion-grid>
+    </form>
 </ion-content>

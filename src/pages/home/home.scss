@@ -1,7 +1,45 @@
 page-home {
+  .header {
+    * {
+      transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+    }
+    .opaque {
+      .toolbar-background {
+        background-color: transparent;
+        border-color: transparent;
+      }
+      .toolbar-title {
+        color: #fff;
+      }
+      .icon {
+        color: #fff;
+      }
+    }
+
+  }
+
+  .scroll-content {
+    margin-top: 0 !important;
+  }
+
 
   .slides {
     height: 20rem;
+
+    .shadow {
+      box-shadow: 0 -100px 100px -40px rgba(0,0,0,0.5) inset;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      .title {
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+        text-align: left;
+        font-size: 2.1rem;
+      }
+    }
   }
 
   .article-item {
@@ -14,4 +52,6 @@ page-home {
       height: 75px;
     }
   }
+
+
 }
