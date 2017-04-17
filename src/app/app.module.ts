@@ -15,6 +15,7 @@ import {RestangularModule} from 'ng2-restangular';
 import LocalStorageService from "../providers/local-storage.service";
 import {RestangularConfigFactory} from "../providers/REST";
 import UserService from "../providers/user.service";
+import {WelcomePage} from "../pages/welcome/welcome";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import UserService from "../providers/user.service";
     ListPage,
     LoginPage,
     RegisterPage,
-    SettingsPage
+    SettingsPage,
+    WelcomePage,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import UserService from "../providers/user.service";
     ListPage,
     LoginPage,
     RegisterPage,
-    SettingsPage
+    SettingsPage,
+    WelcomePage,
   ],
   providers: [
     StatusBar,
