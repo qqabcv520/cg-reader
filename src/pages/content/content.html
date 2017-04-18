@@ -1,8 +1,18 @@
 <ion-content>
-    <img class="content-img" src=""> 
+
+
+
+    <div class="title-image">
+        <img [src]="article.titleImg">
+        <div class="shadow">
+            <h2 class="title" margin>{{article.title}}</h2>
+        </div>
+    </div>
+    {{article.content}}
+
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-    <ion-title>底部</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>底部</ion-title>
+    </ion-toolbar>
 </ion-footer>

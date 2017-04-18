@@ -16,6 +16,7 @@ import LocalStorageService from "../providers/local-storage.service";
 import {RestangularConfigFactory} from "../providers/REST";
 import UserService from "../providers/user.service";
 import {WelcomePage} from "../pages/welcome/welcome";
+import {ContentPage} from "../pages/content/content";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {WelcomePage} from "../pages/welcome/welcome";
     RegisterPage,
     SettingsPage,
     WelcomePage,
+    ContentPage,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import {WelcomePage} from "../pages/welcome/welcome";
     RegisterPage,
     SettingsPage,
     WelcomePage,
+    ContentPage,
   ],
   providers: [
     StatusBar,

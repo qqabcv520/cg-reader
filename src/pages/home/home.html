@@ -23,7 +23,7 @@
     </ion-slides>
 
     <ion-list>
-        <ion-item class="article-item" *ngFor="let article of articles">
+        <ion-item class="article-item" *ngFor="let article of articles" (click)="openArticle(article.id)">
 
             <h2 >{{article.title}}</h2>
             <ion-thumbnail item-right>

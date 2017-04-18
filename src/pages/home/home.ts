@@ -1,7 +1,7 @@
-import {ChangeDetectorRef, Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {Restangular} from "ng2-restangular";
-import {Content} from "ionic-angular";
-import {fakeAsync} from "@angular/core/testing";
+import {Content, NavController} from "ionic-angular";
+import {ContentPage} from "../content/content";
 
 @Component({
     selector: 'page-home',
@@ -44,7 +44,8 @@ export class HomePage implements OnInit {
     isShowToolbar = true;
 
     constructor(private restangular: Restangular,
-                private ref: ChangeDetectorRef) {
+                private ref: ChangeDetectorRef,
+                private navCtrl: NavController) {
 
     }
 
@@ -96,8 +97,8 @@ export class HomePage implements OnInit {
      * 查看详情
      * @param id
      */
-    open(id: number) {
-
+    openArticle(id: number) {
+        this.navCtrl.push(ContentPage, {id: id});
     }
 
 

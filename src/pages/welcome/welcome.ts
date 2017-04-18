@@ -14,7 +14,7 @@ export class WelcomePage {
 
     constructor(private navCtrl: NavController) {
         setTimeout(() => {
-            navCtrl.setRoot(HomePage);
+            navCtrl.setRoot(HomePage, null, {animate: true, direction: "forward"});
         }, 2000);
     }
 
