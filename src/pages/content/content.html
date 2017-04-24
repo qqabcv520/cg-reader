@@ -1,18 +1,19 @@
+
+<ion-header class="header" [class.opaque]="isTransparent">
+    <ion-navbar color="primary">
+        <ion-title>详情</ion-title>
+    </ion-navbar>
+</ion-header>
+
 <ion-content>
-
-
-
     <div class="title-image">
-        <img [src]="article.titleImg">
+        <img *ngIf="article.titleImg" [src]="article.titleImg" >
         <div class="shadow">
             <h2 class="title" margin>{{article.title}}</h2>
         </div>
     </div>
-    {{article.content}}
+    <div class="article-content" [innerHTML]="article.content" padding="24px">
+
+    </div>
 
 </ion-content>
-<ion-footer>
-    <ion-toolbar>
-        <ion-title>底部</ion-title>
-    </ion-toolbar>
-</ion-footer>

@@ -8,7 +8,7 @@ import UserService from "./user.service";
 // 设置Restangular默认设置
 export function RestangularConfigFactory(RestangularProvider, UserService: UserService) {
 
-  RestangularProvider.setBaseUrl('http://192.168.1.130:8080/myblog');
+  RestangularProvider.setBaseUrl('http://172.17.54.1:8080/myblog');
 
   // by each request to the server receive a token and update headers with it
   RestangularProvider.addFullRequestInterceptor((element, operation, path, url, headers, params) => {

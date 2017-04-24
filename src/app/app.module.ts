@@ -17,44 +17,49 @@ import {RestangularConfigFactory} from "../providers/REST";
 import UserService from "../providers/user.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {ContentPage} from "../pages/content/content";
+import {ListDataProvider} from "../providers/list-data";
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage,
-    LoginPage,
-    RegisterPage,
-    SettingsPage,
-    WelcomePage,
-    ContentPage,
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
+    declarations: [
+        MyApp,
+        HomePage,
+        ListPage,
+        LoginPage,
+        RegisterPage,
+        SettingsPage,
+        WelcomePage,
+        ContentPage,
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp, {
+            backButtonText: '返回',
+            mode: 'ios',
+            // pageTransition: 'ios-transition',
+            // menuType: "push"
+        }),
 
-    RestangularModule.forRoot([UserService], RestangularConfigFactory),
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage,
-    LoginPage,
-    RegisterPage,
-    SettingsPage,
-    WelcomePage,
-    ContentPage,
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    // { provide: USER_REST, useFactory:  UserRestFactory, deps: [Restangular] },
-    // { provide: ARTICLE_REST, useFactory:  ArticleRestFactory, deps: [Restangular] },
-    UserService,
-    LocalStorageService
-  ]
+        RestangularModule.forRoot([UserService], RestangularConfigFactory),
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        ListPage,
+        LoginPage,
+        RegisterPage,
+        SettingsPage,
+        WelcomePage,
+        ContentPage,
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        UserService,
+        LocalStorageService,
+        ListDataProvider
+    ]
 })
 export class AppModule {
 }

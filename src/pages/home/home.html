@@ -1,5 +1,5 @@
-<ion-header class="header" >
-    <ion-navbar [class.opaque]="isShowToolbar">
+<ion-header class="header" [class.opaque]="isTransparent">
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
@@ -11,19 +11,18 @@
     <ion-refresher [pullMax]="150" (ionRefresh)="update($event)" >
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <ion-slides class="slides" [loop]="true">
+    <ion-slides class="slides" loop="true" pager="true"  >
 
-        <ion-slide *ngFor="let slideArticle of slideArticles" >
+        <ion-slide *ngFor="let slideArticle of slideArticles" (click)="openArticle(slideArticle)" >
             <img [src]="slideArticle.titleImg" >
             <div class="shadow">
                 <h2 class="title" margin>{{slideArticle.title}}</h2>
             </div>
         </ion-slide>
-
     </ion-slides>
 
     <ion-list>
-        <ion-item class="article-item" *ngFor="let article of articles" (click)="openArticle(article.id)">
+        <ion-item class="article-item" *ngFor="let article of articles" (click)="openArticle(article)">
 
             <h2 >{{article.title}}</h2>
             <ion-thumbnail item-right>

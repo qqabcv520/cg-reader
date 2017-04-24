@@ -3,38 +3,46 @@ page-home {
     * {
       transition: background-color 0.5s, color 0.5s, border-color 0.5s;
     }
-    .opaque {
-      .toolbar-background {
-        background-color: transparent;
-        border-color: transparent;
-      }
-      .toolbar-title {
-        color: #fff;
-      }
-      .icon {
-        color: #fff;
-      }
+
+  }
+  .opaque {
+    .toolbar-background {
+      background-color: transparent !important;
+      border-color: transparent;
+    }
+    .toolbar-title {
+      color: #fff !important;
+    }
+    .icon {
+      color: #fff !important;
+    }
+    &::after {
+      background-image: none !important;
     }
 
   }
 
   .scroll-content {
     margin-top: 0 !important;
+    border-top: 0 !important;
   }
-
 
   .slides {
     height: 20rem;
 
+    .swiper-pagination-bullet-active {
+      background: #fff;
+    }
+
     .shadow {
-      box-shadow: 0 -100px 100px -40px rgba(0,0,0,0.5) inset;
+      box-shadow: 0 -100px 100px -40px rgba(0, 0, 0, 0.5) inset;
       position: absolute;
       top: 0;
       width: 100%;
       height: 100%;
       .title {
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         color: #fff;
         text-align: left;
         font-size: 2.1rem;
@@ -53,6 +61,5 @@ page-home {
       object-fit: cover;
     }
   }
-
 
 }

@@ -15,7 +15,7 @@ import {WelcomePage} from "../pages/welcome/welcome";
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = WelcomePage;
+    rootPage: any = HomePage;
 
     pages: Array<{ title: string, component: any }>;
 
@@ -29,15 +29,16 @@ export class MyApp {
             {title: '登录', component: LoginPage},
             {title: '设置', component: SettingsPage}
         ];
-
     }
 
     initializeApp() {
         this.platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
+            //this.statusBar.styleDefault();
+            // this.splashScreen.hide();
+            // this.statusBar.show();
+            this.statusBar.backgroundColorByHexString("#232a30");
         });
     }
 

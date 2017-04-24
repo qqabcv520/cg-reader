@@ -1,6 +1,8 @@
 import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {HomePage} from "../home/home";
+import {ListDataProvider} from "../../providers/list-data";
+import {Restangular} from "ng2-restangular";
 /**
  * Created by 米饭 on 2017-04-17.
  */
@@ -12,10 +14,22 @@ import {HomePage} from "../home/home";
 export class WelcomePage {
 
 
-    constructor(private navCtrl: NavController) {
-        setTimeout(() => {
-            navCtrl.setRoot(HomePage, null, {animate: true, direction: "forward"});
-        }, 2000);
+    constructor(restangular: Restangular, navCtrl: NavController, listDataProvider: ListDataProvider) {
+        let timeFlag = Date.now();
+
+        listDataProvider.create("home", restangular.all("articles")).update().subscribe({
+            complete: () => {
+                let interval = Date.now() - timeFlag;
+                if(interval < 2000) {
+                    setTimeout(() => navCtrl.setRoot(HomePage, null, {animate: true, direction: "forward"}), 2000-interval);
+                } else {
+                    navCtrl.setRoot(HomePage, null, {animate: true, direction: "forward"});
+                }
+            }
+
+        });
+
+        // let timeout = setTimeout(() => navCtrl.setRoot(HomePage, null, {animate: true, direction: "forward"});
     }
 
 }
