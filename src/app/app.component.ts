@@ -5,9 +5,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {HomePage} from '../pages/home/home';
 import {ListPage} from '../pages/list/list';
-import {LoginPage} from '../pages/login/login';
 import {SettingsPage} from '../pages/settings/settings';
-import {WelcomePage} from "../pages/welcome/welcome";
+
 
 @Component({
     templateUrl: 'app.html'
@@ -25,9 +24,7 @@ export class MyApp {
         // used for an example of ngFor and navigation
         this.pages = [
             {title: '首页', component: HomePage},
-            {title: 'List', component: ListPage},
-            {title: '登录', component: LoginPage},
-            {title: '设置', component: SettingsPage}
+            {title: 'List', component: ListPage}
         ];
     }
 
@@ -46,5 +43,17 @@ export class MyApp {
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
+    }
+
+    openSettingPage(){
+        this.nav.push(SettingsPage);
+    }
+
+    isLogined(){
+
+    }
+
+    openLoginPage(){
+        
     }
 }

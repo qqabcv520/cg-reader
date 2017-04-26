@@ -18,18 +18,34 @@
 
 
 ion-menu {
-
-  .toolbar-title {
-    color: rgb(150,150,150);
-  }
-  .toolbar-background {
-    background: rgb(35,42,48) !important;
+  ion-header{
+    color: rgb(148,153,157) !important;
+    font-size: 18px;
+    .user-layout{
+      margin:10px;
+      img{
+        width:36px;
+        height:36px;
+      }
+      .username{
+        margin-left: 10px;
+      }
+    }
+    .setting-layout{
+      font-size:24px;
+      margin-left:10px;
+      margin-right:10px;
+      .setting-text{
+        font-size:12px;
+      }
+    }
   }
   ion-content{
     background: rgb(35,42,48) !important;
+    color: rgb(148,153,157) !important;
     ion-list button {
       background: rgb(35,42,48) !important;
-      color: rgb(150,150,150) !important;
+      color: rgb(148,153,157) !important;
     }
   }
 }

@@ -1,13 +1,40 @@
 <ion-menu [content]="content" swipeEnabled="false">
     <ion-header>
-        <ion-toolbar >
-            <ion-title>Menu</ion-title>
-        </ion-toolbar>
+        <ion-grid>
+            <ion-row class="user-layout" align-items-center menuClose (click)="openLoginPage()">
+                <ion-col col-2>
+                    <ion-avatar item-left>
+                        <img src="assets/icon/favicon.ico">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col class="username" col-auto>请登录</ion-col>
+            </ion-row>
+            <ion-row class="setting-layout" justify-content-start>
+                <ion-col col-4>
+                    <div>
+                        <ion-icon name="ios-star-outline"></ion-icon>
+                        <br><div class="setting-text">收藏</div>
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div>
+                        <ion-icon name="ios-notifications-outline"></ion-icon>
+                        <br><div class="setting-text">消息</div>
+                    </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div menuClose (click)="openSettingPage()">
+                        <ion-icon name="ios-settings-outline"></ion-icon>
+                        <br><div class="setting-text">设置</div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </ion-header>
 
-    <ion-content >
+    <ion-content>
         <ion-list no-lines>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
                 {{p.title}}
             </button>
         </ion-list>
@@ -16,4 +43,4 @@
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false" ></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
