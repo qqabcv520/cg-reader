@@ -55,10 +55,12 @@ export class HomePage {
     }
 
     ionViewCanEnter() {
+        console.log("enter");
         this.menuCtrl.swipeEnable(true);
     }
 
     ionViewCanLeave() {
+        console.log("leave");
         this.menuCtrl.swipeEnable(false);
     }
 

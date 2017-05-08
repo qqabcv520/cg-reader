@@ -3,19 +3,33 @@
  */
 
 import UserService from "./user.service";
+import Md5 from "./md5";
 
 
 // 设置Restangular默认设置
-export function RestangularConfigFactory(RestangularProvider, UserService: UserService) {
+export function RestangularConfigFactory(RestangularProvider, userService: UserService) {
 
-  RestangularProvider.setBaseUrl('http://192.168.1.130:8080/myblog');
+    RestangularProvider.setBaseUrl('http://mifan.lol/blog');
 
-  // by each request to the server receive a token and update headers with it
-  RestangularProvider.addFullRequestInterceptor((element, operation, path, url, headers, params) => {
-    return {
-      headers: Object.assign({}, headers, {token: UserService.token})
-    };
-  });
+    // by each request to the server receive a token and update headers with it
+    RestangularProvider.addFullRequestInterceptor((element, operation, path, url, headers, params) => {
+        let newHeader;
+        if(userService.username != null) {
+            newHeader = {
+                username: userService.username,
+                curTimeStr: Date.now(),
+                nonce: Math.floor(Math.random() * 10000),
+                checkSum: ""
+            };
+
+            newHeader.checkSum = new Md5()
+                .hex_md5(userService.token + newHeader.username + newHeader.curTimeStr + newHeader.nonce);
+        }
+
+        return {
+            headers: Object.assign({}, headers, newHeader)
+        };
+    });
 }
 
 

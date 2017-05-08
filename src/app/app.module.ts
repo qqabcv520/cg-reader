@@ -18,6 +18,8 @@ import UserService from "../providers/user.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {ContentPage} from "../pages/content/content";
 import {ListDataProvider} from "../providers/list-data";
+import {TypePage} from "../pages/type/type";
+import {UserInfoPage} from "../pages/user-info/user-info";
 
 @NgModule({
     declarations: [
@@ -29,6 +31,8 @@ import {ListDataProvider} from "../providers/list-data";
         SettingsPage,
         WelcomePage,
         ContentPage,
+        TypePage,
+        UserInfoPage
     ],
     imports: [
         BrowserModule,
@@ -51,6 +55,8 @@ import {ListDataProvider} from "../providers/list-data";
         SettingsPage,
         WelcomePage,
         ContentPage,
+        TypePage,
+        UserInfoPage
     ],
     providers: [
         StatusBar,
