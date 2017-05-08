@@ -24,6 +24,7 @@ export class RegisterPage {
             () => {
                 this.restangular.all("users").customPOST(this.account, "token").subscribe((result) => {
                         this.user.token = result.token;
+                        this.user.username = this.account.username;
                         this.navCtrl.setRoot(HomePage);
                         this.showToast("注册完成");
                     }, (error: Response) => {
