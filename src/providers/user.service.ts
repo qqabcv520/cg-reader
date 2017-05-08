@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 import LocalStorageService from "./local-storage.service";
 /**
  * Created by 米饭 on 2017-04-14.
@@ -8,53 +8,43 @@ import LocalStorageService from "./local-storage.service";
 @Injectable()
 export default class UserService {
 
-    private _token: string | null;
-    private _isRemember: boolean;
+
+    private _username: string;
+    private _token: string;
+    private _avatar: string;
 
     constructor(private localStorageService: LocalStorageService) {
-        this._isRemember = localStorageService.get<boolean>("isRemember") || false;
-        if (this._isRemember) {
-            this.token = localStorageService.get<string>("token");
-        }
+        this._username = localStorageService.get<string>("username");
+        this._token = localStorageService.get<string>("token");
+        this._avatar = localStorageService.get<string>("avatar");
     }
-    //
-    // /**
-    //  * 提交username和password，从服务端获取token
-    //  * @param loginParam
-    //  */
-    // login(loginParam: ILoginParam) {
-    //   this.userRest.customPOST(loginParam, "token").subscribe((result) => {
-    //     this.token = result.token
-    //   }, function (err) {
-    //     console.error("登录失败:" + err.state);
-    //   });
-    // }
 
-    get token(): string | null {
+    get username(): string {
+        return this._username;
+    }
+
+    set username(value: string) {
+        this._username = value;
+        this.localStorageService.set<string>("username", value);
+    }
+
+    get token(): string {
         return this._token;
     }
 
-    set token(value: string | null) {
+    set token(value: string) {
         this._token = value;
-        // this.restangular.head({token: value});
-        if (this._isRemember) {
-            this.localStorageService.set<string>("token", value);
-        }
+        this.localStorageService.set<string>("token", value);
     }
 
-    get isRemember(): boolean {
-        return this._isRemember;
+    get avatar(): string {
+        return this._avatar;
     }
 
-    set isRemember(value: boolean) {
-        this._isRemember = value;
+    set avatar(value: string) {
+        this._avatar = value;
+        this.localStorageService.set<string>("avatar", value);
     }
+
 }
 
-export interface IUser {
-    username: string;
-    id?: number;
-    email?: string;
-    phone?: string;
-    avatar?: string;
-}

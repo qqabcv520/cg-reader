@@ -23,6 +23,7 @@ export class LoginPage {
     doLogin() {
         this.restangular.all("users").customPOST(this.account, "token").subscribe((result) => {
                 this.user.token = result.token;
+                this.user.username = this.account.username;
                 this.navCtrl.setRoot(HomePage);
                 this.showToast("登录成功");
             }, (error: Response) => {

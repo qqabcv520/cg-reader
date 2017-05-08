@@ -1,13 +1,13 @@
 <ion-menu [content]="content" swipeEnabled="false">
     <ion-header>
         <ion-grid>
-            <ion-row class="user-layout" align-items-center menuClose (click)="openLoginPage()">
+            <ion-row class="user-layout" align-items-center menuClose (click)="openUserInfo()">
                 <ion-col col-2>
                     <ion-avatar item-left>
                         <img src="assets/icon/favicon.ico">
                     </ion-avatar>
                 </ion-col>
-                <ion-col class="username" col-auto>请登录</ion-col>
+                <ion-col class="username" col-auto>{{userService.username?userService.username:'请登录'}}</ion-col>
             </ion-row>
             <ion-row class="setting-layout" justify-content-start>
                 <ion-col col-4>

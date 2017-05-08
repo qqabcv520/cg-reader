@@ -7,7 +7,7 @@ export class ListDataProvider {
 
     private _dataMap = {};
 
-    constructor(private restangular: Restangular) {
+    constructor() {
 
     }
 
@@ -70,6 +70,7 @@ export class ListDataService {
             if (result.length === 0) {
                 this.isOver = true;
             }
+            // this.articles.concat(result);
             for (let article of result) {
                 this.articles.push(article);
             }
@@ -85,11 +86,14 @@ export class ListDataService {
         this.offset = 0;
         let ob = this.restangular.getList({offset: this.offset, limit: this.limit});
         ob.subscribe((result: Array<IArticle>) => {
+            console.log(result);
             this.articles.splice(0, this.articles.length);
-            this.isOver = false;
+            // this.articles.concat(result);
             for (let article of result) {
                 this.articles.push(article);
             }
+            console.log(this.articles);
+            this.isOver = false;
             this.offset += this.limit;
         });
         return ob;
