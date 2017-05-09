@@ -21,21 +21,25 @@ ion-menu {
   ion-header{
     color: rgb(148,153,157) !important;
     font-size: 18px;
-    .user-layout{
+    .app-user{
       margin:10px;
-      img{
+      ion-avatar{
         width:36px;
         height:36px;
+        img{
+          width:36px;
+          height:36px;
+        }
       }
-      .username{
+      .app-user-name{
         margin-left: 10px;
       }
     }
-    .setting-layout{
+    .app-setting{
       font-size:24px;
       margin-left:10px;
       margin-right:10px;
-      .setting-text{
+      .app-setting-text{
         font-size:12px;
       }
     }

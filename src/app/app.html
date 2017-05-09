@@ -1,31 +1,31 @@
 <ion-menu [content]="content" swipeEnabled="false">
     <ion-header>
         <ion-grid>
-            <ion-row class="user-layout" align-items-center menuClose (click)="openUserInfo()">
-                <ion-col col-2>
-                    <ion-avatar item-left>
+            <ion-row class="app-user" align-items-center menuClose (click)="openUserInfo()">
+                <ion-col col-auto>
+                    <ion-avatar>
                         <img src="assets/icon/favicon.ico">
                     </ion-avatar>
                 </ion-col>
-                <ion-col class="username" col-auto>{{userService.username?userService.username:'请登录'}}</ion-col>
+                <ion-col col-auto class="app-user-name">{{userService.username?userService.username:'请登录'}}</ion-col>
             </ion-row>
-            <ion-row class="setting-layout" justify-content-start>
+            <ion-row class="app-setting" justify-content-start>
                 <ion-col col-4>
                     <div>
                         <ion-icon name="ios-star-outline"></ion-icon>
-                        <br><div class="setting-text">收藏</div>
+                        <div class="app-setting-text">收藏</div>
                     </div>
                 </ion-col>
                 <ion-col col-4>
                     <div>
                         <ion-icon name="ios-notifications-outline"></ion-icon>
-                        <br><div class="setting-text">消息</div>
+                        <div class="app-setting-text">消息</div>
                     </div>
                 </ion-col>
                 <ion-col col-4>
                     <div menuClose (click)="openSettingPage()">
                         <ion-icon name="ios-settings-outline"></ion-icon>
-                        <br><div class="setting-text">设置</div>
+                        <div class="app-setting-text">设置</div>
                     </div>
                 </ion-col>
             </ion-row>

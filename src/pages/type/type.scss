@@ -1,3 +1,38 @@
 page-type {
 
+  .header {
+    * {
+      transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+    }
+
+  }
+  .opaque {
+    .toolbar-background {
+      background-color: transparent !important;
+      border-color: transparent;
+    }
+    .toolbar-title {
+      color: #fff !important;
+    }
+    .icon {
+      color: #fff !important;
+    }
+    &::after {
+      background-image: none !important;
+    }
+
+  }
+
+  .article-item {
+    height: 110px;
+    h2 {
+      white-space: normal;
+    }
+    img {
+      width: 100px;
+      height: 75px;
+      object-fit: cover;
+    }
+  }
+
 }

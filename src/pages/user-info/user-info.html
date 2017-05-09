@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>userInfo</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,20 @@
 
 
 <ion-content padding>
-
+    <ion-grid>
+        <ion-row justify-content-center margin-top id="userinfo-head">
+            <ion-avatar>
+                <img src="assets/icon/favicon.ico">
+            </ion-avatar>
+        </ion-row>
+        <ion-row justify-content-center margin-top id="userinfo-username">
+            <ion-col col-3>
+                <ion-input type="text" placeholder="Username"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center id="userinfo-signout">
+            <button ion-button color="danger" outline round col-6>注销登录</button>
+        </ion-row>
+    </ion-grid>
+    
 </ion-content>

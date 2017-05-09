@@ -9,6 +9,7 @@ import {SettingsPage} from '../pages/settings/settings';
 import UserService from "../providers/user.service";
 import {LoginPage} from "../pages/login/login";
 import {UserInfoPage} from "../pages/user-info/user-info";
+import {TypePage} from "../pages/type/type";
 
 
 @Component({
@@ -30,7 +31,7 @@ export class MyApp {
         // used for an example of ngFor and navigation
         this.pages = [
             {title: '首页', component: HomePage},
-            {title: '电影日报', component: ListPage},
+            {title: '电影日报', component: TypePage},
             {title: '设计日报', component: ListPage},
             {title: '游戏日报', component: ListPage},
             {title: '动漫日报', component: ListPage},
