@@ -10,7 +10,7 @@ import Md5 from "./md5";
 export function RestangularConfigFactory(RestangularProvider, userService: UserService) {
 
     // RestangularProvider.setBaseUrl('http://mifan.lol/blog');
-    RestangularProvider.setBaseUrl('http://172.26.128.1:8080/myblog/');
+    RestangularProvider.setBaseUrl('http://172.27.35.1:8080/myblog/');
     // by each request to the server receive a token and update headers with it
     RestangularProvider.addFullRequestInterceptor((element, operation, path, url, headers, params) => {
         let newHeader;
