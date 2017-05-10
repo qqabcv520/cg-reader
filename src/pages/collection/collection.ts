@@ -9,15 +9,15 @@ import LocalStorageService from "../../providers/local-storage.service";
  * on Ionic pages and navigation.
  */
 @Component({
-  selector: 'page-collection',
-  templateUrl: 'collection.html',
+    selector: 'page-collection',
+    templateUrl: 'collection.html',
 })
 export class CollectionPage {
-  private title;
+    
 
-  constructor(private localStorageService: LocalStorageService) {
+    constructor(private localStorageService: LocalStorageService) {
 
-  }
+    }
 
 
 }

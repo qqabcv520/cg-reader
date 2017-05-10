@@ -11,11 +11,12 @@ import LocalStorageService from "../../providers/local-storage.service";
 export class ContentPage implements OnInit {
 
     article: IArticle;
+    collections: Array<IArticle>;
+    localStorageService: LocalStorageService;
 
     constructor(private navParams: NavParams,
-                private restangular: Restangular,
-                private localStorageService: LocalStorageService) {
-
+                private restangular: Restangular) {
+        
     }
 
     ngOnInit(): void {
@@ -31,8 +32,15 @@ export class ContentPage implements OnInit {
             });
     }
 
-    saveArticleData(){
+    saveCollection(){
         
+        this.collections.push(this.article);
+        this.localStorageService.set<Array<IArticle>>("collections",this.collections);
+        // if (this.localStorageService.get<Array<IArticle>>("collections") == null){
+        //     this.collections.push(this.article);
+        // }else{
+        //     this.collections.push(this.article);
+        // }
     }
 
 }
