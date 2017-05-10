@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>userInfo</ion-title>
+    <ion-title>用户</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -22,11 +22,11 @@
         </ion-row>
         <ion-row justify-content-center margin-top id="userinfo-username">
             <ion-col col-auto>
-                用户名
+                {{user.username}}
             </ion-col>
         </ion-row>
         <ion-row justify-content-center id="userinfo-signout">
-            <button ion-button color="danger" outline round col-6>注销登录</button>
+            <button ion-button color="danger" outline round col-6 (click)="logout()" >注销登录</button>
         </ion-row>
     </ion-grid>
     

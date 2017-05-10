@@ -1,20 +1,20 @@
-import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
-import {Content, NavController, Refresher, MenuController} from "ionic-angular";
-import {ContentPage} from "../content/content";
-import {IArticle, ListDataProvider, ListDataService} from "../../providers/list-data";
-import {SplashScreen} from "@ionic-native/splash-screen";
+import { Component } from '@angular/core';
+import {MenuController, NavController, NavParams, Refresher} from 'ionic-angular';
 import {Restangular} from "ng2-restangular";
+import {IArticle, ListDataProvider, ListDataService} from "../../providers/list-data";
+import {ContentPage} from "../content/content";
 
+/**
+ * Generated class for the Type page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 @Component({
     selector: 'page-type',
-    templateUrl: 'type.html'
+    templateUrl: 'type.html',
 })
 export class TypePage {
-
-    /**
-     * 获取界面Content的实例对象
-     */
-    @ViewChild(Content) content: Content;
 
 
     /**
@@ -34,41 +34,35 @@ export class TypePage {
      */
     articles: Array<IArticle>;
 
-    private _slideArticles = [];
 
-    constructor(private ref: ChangeDetectorRef,
+    typeName: string;
+
+    constructor(private navParams: NavParams,
                 private navCtrl: NavController,
                 private listDataProvider: ListDataProvider,
                 private menuCtrl: MenuController,
-                private splashScreen: SplashScreen,
                 private restangular: Restangular) {
 
-        this.listDataService = listDataProvider.create("home", restangular.all("articles"));
+        this.typeName = navParams.get("name");
+
+        let rest = restangular.one("tags", navParams.get("id")).all("articles");
+        this.listDataService = listDataProvider.create(navParams.get("name"), rest);
 
         this.listDataService.update().subscribe({
             complete: () => {
                 this.articles = this.listDataService.articles;
-                this._slideArticles = this.articles.slice(0, 5);
-                this.splashScreen.hide();
             }
         });
     }
 
     ionViewCanEnter() {
-        console.log("enter");
         this.menuCtrl.swipeEnable(true);
     }
 
     ionViewCanLeave() {
-        console.log("leave");
         this.menuCtrl.swipeEnable(false);
     }
 
-    onScroll($event: any) {
-        let scrollTop = $event.scrollTop;
-        this.isTransparent = scrollTop < 200;
-        this.ref.detectChanges();
-    }
 
     /**
      * 加载数据
@@ -103,14 +97,7 @@ export class TypePage {
     }
 
 
-    get slideArticles() {
-        return this._slideArticles;
-    }
-
     get isOver() {
         return this.listDataService.isOver;
     }
-
-
 }
-

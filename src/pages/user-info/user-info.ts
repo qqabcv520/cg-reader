@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import UserService from "../../providers/user.service";
 
 /**
  * Generated class for the UserInfo page.
@@ -8,16 +9,18 @@ import { NavController, NavParams } from 'ionic-angular';
  * on Ionic pages and navigation.
  */
 @Component({
-  selector: 'page-user-info',
-  templateUrl: 'user-info.html',
+    selector: 'page-user-info',
+    templateUrl: 'user-info.html',
 })
 export class UserInfoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(private navCtrl: NavController, private user: UserService) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserInfo');
-  }
+    logout() {
+        this.user.token = null;
+        this.user.username = null;
+        this.navCtrl.pop();
+    }
 
 }

@@ -21,7 +21,7 @@ export class MyApp {
 
     rootPage: any = HomePage;
 
-    pages: Array<{ title: string, component: any }>;
+    pages: Array<{ title: string, component: any, params?: any }>;
 
     constructor(private platform: Platform,
                 private statusBar: StatusBar,
@@ -32,11 +32,11 @@ export class MyApp {
         // used for an example of ngFor and navigation
         this.pages = [
             {title: '首页', component: HomePage},
-            {title: '电影日报', component: TypePage},
-            {title: '设计日报', component: ListPage},
-            {title: '游戏日报', component: ListPage},
-            {title: '动漫日报', component: ListPage},
-            {title: '互联网日报', component: ListPage}
+            {title: '电影日报', component: TypePage, params: {name:"电影日报", id: 14} },
+            {title: '设计日报', component: TypePage, params: {name:"设计日报", id: 19} },
+            {title: '游戏日报', component: TypePage, params: {name:"游戏日报", id: 16} },
+            {title: '动漫日报', component: TypePage, params: {name:"动漫日报", id: 17} },
+            {title: '互联网日报', component: TypePage, params: {name:"互联网日报", id: 18} }
         ];
     }
 
@@ -54,17 +54,22 @@ export class MyApp {
     }
 
     openPage(page) {
-        this.nav.setRoot(page.component);
+        // if(page.params) {
+        //     this.nav.setRoot(page.component, page.params, { animate: true});
+        // } else {
+        //     this.nav.setRoot(page.component, page.params);
+        // }
+        this.nav.setRoot(page.component, page.params);
     }
 
-    openSettingPage(){
+    openSettingPage() {
         this.nav.push(SettingsPage);
     }
 
     openCollectionPage(){
         this.nav.push(CollectionPage);
     }
-    
+
     isLogined(){
 
     }

@@ -10,13 +10,13 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>type</ion-title>
+        <ion-title>{{typeName}}</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
-<ion-content (ionScroll)="onScroll($event)">
+<ion-content>
     <ion-refresher [pullMax]="150" (ionRefresh)="update($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
