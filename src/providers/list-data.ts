@@ -118,3 +118,9 @@ export interface ITag {
     id: number;
     name: string;
 }
+
+export interface ICollection{
+    id?: number;
+    title: string;
+    titleImg?: string;
+}

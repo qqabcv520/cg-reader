@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NavParams} from "ionic-angular";
+import { NavParams, ToastController } from "ionic-angular";
 import {Restangular} from "ng2-restangular";
-import {IArticle} from "../../providers/list-data";
+import { IArticle, ICollection } from "../../providers/list-data";
 import LocalStorageService from "../../providers/local-storage.service";
 
 @Component({
@@ -11,11 +11,12 @@ import LocalStorageService from "../../providers/local-storage.service";
 export class ContentPage implements OnInit {
 
     article: IArticle;
-    collections: Array<IArticle>;
-    localStorageService: LocalStorageService;
+    
 
     constructor(private navParams: NavParams,
-                private restangular: Restangular) {
+                private restangular: Restangular,
+                private localStorageService: LocalStorageService, 
+                private toastCtrl: ToastController) {
         
     }
 
@@ -33,14 +34,41 @@ export class ContentPage implements OnInit {
     }
 
     saveCollection(){
-        
-        this.collections.push(this.article);
-        this.localStorageService.set<Array<IArticle>>("collections",this.collections);
-        // if (this.localStorageService.get<Array<IArticle>>("collections") == null){
-        //     this.collections.push(this.article);
-        // }else{
-        //     this.collections.push(this.article);
-        // }
+        let collections = this.localStorageService.get<Array<ICollection>>("collections");
+        if(collections == null) {
+            collections = [];
+        }else if(this.isRepeat(collections)){
+            this.showToast("请勿重复收藏");
+        }else{
+            collections.push({
+                id: this.article.id, 
+                title: this.article.title,
+                titleImg: this.article.titleImg
+            });
+            this.localStorageService.set<Array<ICollection>>("collections",collections);
+            this.showToast("收藏成功");
+        }
+
     }
+
+    private isRepeat(collections: Array<ICollection>): boolean{
+        let repeat = false;
+        for(let collection of collections){
+            if(collection.id == this.article.id){
+                repeat = true;
+            }
+        }
+        return repeat;
+    }
+
+    private showToast(str: string) {
+        let toast = this.toastCtrl.create({
+            message: str,
+            duration: 2000,
+            position: "top"
+        });
+        toast.present();
+    }
+
 
 }
