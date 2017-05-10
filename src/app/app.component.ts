@@ -10,6 +10,7 @@ import UserService from "../providers/user.service";
 import {LoginPage} from "../pages/login/login";
 import {UserInfoPage} from "../pages/user-info/user-info";
 import {TypePage} from "../pages/type/type";
+import {CollectionPage} from "../pages/collection/collection";
 
 
 @Component({
@@ -60,6 +61,10 @@ export class MyApp {
         this.nav.push(SettingsPage);
     }
 
+    openCollectionPage(){
+        this.nav.push(CollectionPage);
+    }
+    
     isLogined(){
 
     }

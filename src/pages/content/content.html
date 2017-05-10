@@ -2,6 +2,11 @@
 <ion-header class="header" [class.opaque]="isTransparent">
     <ion-navbar color="primary">
         <ion-title>详情</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="saveArticleData()">
+                收藏
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 

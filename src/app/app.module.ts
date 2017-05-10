@@ -8,6 +8,9 @@ import {ListPage} from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 import {RegisterPage} from '../pages/register/register';
 import {SettingsPage} from '../pages/settings/settings';
+import {TypePage} from "../pages/type/type";
+import {UserInfoPage} from "../pages/user-info/user-info";
+import {CollectionPage} from "../pages/collection/collection";
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -18,8 +21,6 @@ import UserService from "../providers/user.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {ContentPage} from "../pages/content/content";
 import {ListDataProvider} from "../providers/list-data";
-import {TypePage} from "../pages/type/type";
-import {UserInfoPage} from "../pages/user-info/user-info";
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import {UserInfoPage} from "../pages/user-info/user-info";
         WelcomePage,
         ContentPage,
         TypePage,
-        UserInfoPage
+        UserInfoPage,
+        CollectionPage
     ],
     imports: [
         BrowserModule,
@@ -56,7 +58,8 @@ import {UserInfoPage} from "../pages/user-info/user-info";
         WelcomePage,
         ContentPage,
         TypePage,
-        UserInfoPage
+        UserInfoPage,
+        CollectionPage
     ],
     providers: [
         StatusBar,

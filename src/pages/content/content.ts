@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavParams} from "ionic-angular";
 import {Restangular} from "ng2-restangular";
 import {IArticle} from "../../providers/list-data";
+import LocalStorageService from "../../providers/local-storage.service";
 
 @Component({
     selector: 'page-content',
@@ -12,7 +13,9 @@ export class ContentPage implements OnInit {
     article: IArticle;
 
     constructor(private navParams: NavParams,
-                private restangular: Restangular) {
+                private restangular: Restangular,
+                private localStorageService: LocalStorageService) {
+
     }
 
     ngOnInit(): void {
@@ -28,6 +31,8 @@ export class ContentPage implements OnInit {
             });
     }
 
-
+    saveArticleData(){
+        
+    }
 
 }
