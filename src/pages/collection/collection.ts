@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import LocalStorageService from "../../providers/local-storage.service";
-import { ICollection } from "../../providers/list-data";
 import { ContentPage } from "../content/content";
+import {NavController} from "ionic-angular";
+import {ICollection} from "../../providers/list-data";
 
 /**
  * Generated class for the Collection page.
@@ -27,3 +27,4 @@ export class CollectionPage {
     }
 
 }
+

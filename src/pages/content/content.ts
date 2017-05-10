@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { NavParams, ToastController } from "ionic-angular";
+import {NavParams, ToastController} from "ionic-angular";
 import {Restangular} from "ng2-restangular";
-import { IArticle, ICollection } from "../../providers/list-data";
+import {IArticle, ICollection} from "../../providers/list-data";
 import LocalStorageService from "../../providers/local-storage.service";
 
 @Component({
@@ -11,19 +11,19 @@ import LocalStorageService from "../../providers/local-storage.service";
 export class ContentPage implements OnInit {
 
     article: IArticle;
-    
+
 
     constructor(private navParams: NavParams,
                 private restangular: Restangular,
-                private localStorageService: LocalStorageService, 
+                private localStorageService: LocalStorageService,
                 private toastCtrl: ToastController) {
-        
+
     }
 
     ngOnInit(): void {
         this.article = this.navParams.get('article');
 
-        if(this.article.content != null) {
+        if (this.article.content != null) {
             return;
         }
 
@@ -33,28 +33,29 @@ export class ContentPage implements OnInit {
             });
     }
 
-    saveCollection(){
+    saveCollection() {
         let collections = this.localStorageService.get<Array<ICollection>>("collections");
-        if(collections == null) {
+        if (collections == null) {
             collections = [];
-        }else if(this.isRepeat(collections)){
+        }
+        if (this.isRepeat(collections)) {
             this.showToast("请勿重复收藏");
-        }else{
+        } else {
             collections.push({
-                id: this.article.id, 
+                id: this.article.id,
                 title: this.article.title,
                 titleImg: this.article.titleImg
             });
-            this.localStorageService.set<Array<ICollection>>("collections",collections);
+            this.localStorageService.set<Array<ICollection>>("collections", collections);
             this.showToast("收藏成功");
         }
 
     }
 
-    private isRepeat(collections: Array<ICollection>): boolean{
+    private isRepeat(collections: Array<ICollection>): boolean {
         let repeat = false;
-        for(let collection of collections){
-            if(collection.id == this.article.id){
+        for (let collection of collections) {
+            if (collection.id == this.article.id) {
                 repeat = true;
             }
         }
