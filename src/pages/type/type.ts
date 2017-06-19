@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MenuController, NavController, NavParams, Refresher} from 'ionic-angular';
-import {Restangular} from "ng2-restangular";
+import {Restangular} from "ngx-restangular";
 import {IArticle, ListDataProvider, ListDataService} from "../../providers/list-data";
 import {ContentPage} from "../content/content";
 
@@ -48,6 +48,10 @@ export class TypePage {
         let rest = restangular.one("tags", navParams.get("id")).all("articles");
         this.listDataService = listDataProvider.create(navParams.get("name"), rest);
 
+
+    }
+
+    ionViewDidLoad() {
         this.listDataService.update().subscribe({
             complete: () => {
                 this.articles = this.listDataService.articles;
@@ -55,11 +59,12 @@ export class TypePage {
         });
     }
 
-    ionViewCanEnter() {
+
+    ionViewDidEnter() {
         this.menuCtrl.swipeEnable(true);
     }
 
-    ionViewCanLeave() {
+    ionViewDidLeave() {
         this.menuCtrl.swipeEnable(false);
     }
 

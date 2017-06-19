@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content (ionScroll)="onScroll($event)" >
-    <ion-refresher [pullMax]="150" (ionRefresh)="update($event)" >
+    <ion-refresher [pullMax]="200" (ionRefresh)="update($event)" >
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher><!--loop="true"-->
     <ion-slides class="slides"  pager="true"  >
 
-        <ion-slide *ngFor="let slideArticle of slideArticles" (click)="openArticle(slideArticle)" >
+        <ion-slide *ngFor="let slideArticle of slideArticles" tappable (click)="openArticle(slideArticle)" >
             <img [src]="slideArticle.titleImg" >
             <div class="shadow">
                 <h2 class="title" margin>{{slideArticle.title}}</h2>
@@ -22,7 +22,7 @@
     </ion-slides>
 
     <ion-list>
-        <ion-item class="article-item" *ngFor="let article of articles" (click)="openArticle(article)">
+        <ion-item class="article-item" *ngFor="let article of articles" tappable (click)="openArticle(article)">
 
             <h2 >{{article.title}}</h2>
             <ion-thumbnail item-right>

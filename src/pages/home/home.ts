@@ -3,7 +3,7 @@ import {Content, NavController, Refresher, MenuController} from "ionic-angular";
 import {ContentPage} from "../content/content";
 import {IArticle, ListDataProvider, ListDataService} from "../../providers/list-data";
 import {SplashScreen} from "@ionic-native/splash-screen";
-import {Restangular} from "ng2-restangular";
+import {Restangular} from "ngx-restangular";
 
 @Component({
     selector: 'page-home',
@@ -54,13 +54,11 @@ export class HomePage {
         });
     }
 
-    ionViewCanEnter() {
-        console.log("enter");
+    ionViewDidEnter() {
         this.menuCtrl.swipeEnable(true);
     }
 
-    ionViewCanLeave() {
-        console.log("leave");
+    ionViewDidLeave() {
         this.menuCtrl.swipeEnable(false);
     }
 
@@ -88,9 +86,7 @@ export class HomePage {
     update(refresher: Refresher) {
         // this.listDataService.update().subscribe();
         this.listDataService.update().subscribe({
-            complete: () => {
-                refresher.complete();
-            }
+            complete: () => refresher.complete()
         });
     }
 

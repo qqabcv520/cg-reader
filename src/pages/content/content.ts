@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavParams, ToastController} from "ionic-angular";
-import {Restangular} from "ng2-restangular";
+import {Restangular} from "ngx-restangular";
 import {IArticle, ICollection} from "../../providers/list-data";
 import LocalStorageService from "../../providers/local-storage.service";
 
@@ -8,7 +8,7 @@ import LocalStorageService from "../../providers/local-storage.service";
     selector: 'page-content',
     templateUrl: 'content.html'
 })
-export class ContentPage implements OnInit {
+export class ContentPage {
 
     article: IArticle;
 
@@ -17,11 +17,10 @@ export class ContentPage implements OnInit {
                 private restangular: Restangular,
                 private localStorageService: LocalStorageService,
                 private toastCtrl: ToastController) {
-
+        this.article = this.navParams.get('article');
     }
 
-    ngOnInit(): void {
-        this.article = this.navParams.get('article');
+    ionViewDidEnter(): void {
 
         if (this.article.content != null) {
             return;

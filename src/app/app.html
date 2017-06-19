@@ -1,7 +1,7 @@
 <ion-menu [content]="content" swipeEnabled="false">
     <ion-header>
         <ion-grid>
-            <ion-row class="app-user" align-items-center menuClose (click)="openUserInfo()">
+            <ion-row class="app-user" align-items-center menuClose tappable (click)="openUserInfo()">
                 <ion-col col-auto>
                     <ion-avatar>
                         <img src="assets/icon/favicon.ico">
@@ -11,7 +11,7 @@
             </ion-row>
             <ion-row class="app-setting" justify-content-start>
                 <ion-col col-4>
-                    <div menuClose (click)="openCollectionPage()">
+                    <div menuClose tappable (click)="openCollectionPage()">
                         <ion-icon name="ios-star-outline"></ion-icon>
                         <div class="app-setting-text">收藏</div>
                     </div>
@@ -23,7 +23,7 @@
                     </div>
                 </ion-col>
                 <ion-col col-4>
-                    <div menuClose (click)="openSettingPage()">
+                    <div menuClose tappable (click)="openSettingPage()">
                         <ion-icon name="ios-settings-outline"></ion-icon>
                         <div class="app-setting-text">设置</div>
                     </div>

@@ -18,8 +18,7 @@
 
 <ion-content>
     <ion-list>
-        <ion-item class="article-item" *ngFor="let collection of collections" (click)="openArticle(collection)">
-
+        <ion-item class="article-item" *ngFor="let collection of collections" tappable (click)="openArticle(collection)">
             <h2>{{collection.title}}</h2>
             <ion-thumbnail item-right>
                 <img *ngIf="collection.titleImg" [src]="collection.titleImg">

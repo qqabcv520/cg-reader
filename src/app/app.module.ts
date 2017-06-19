@@ -4,7 +4,6 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 import {RegisterPage} from '../pages/register/register';
 import {SettingsPage} from '../pages/settings/settings';
@@ -14,19 +13,18 @@ import {CollectionPage} from "../pages/collection/collection";
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {RestangularModule} from 'ng2-restangular';
 import LocalStorageService from "../providers/local-storage.service";
 import {RestangularConfigFactory} from "../providers/REST";
 import UserService from "../providers/user.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {ContentPage} from "../pages/content/content";
 import {ListDataProvider} from "../providers/list-data";
+import {RestangularModule} from "ngx-restangular";
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
-        ListPage,
         LoginPage,
         RegisterPage,
         SettingsPage,
@@ -51,7 +49,6 @@ import {ListDataProvider} from "../providers/list-data";
     entryComponents: [
         MyApp,
         HomePage,
-        ListPage,
         LoginPage,
         RegisterPage,
         SettingsPage,

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import UserService from "../../providers/user.service";
-import {Restangular} from "ng2-restangular";
+import {Restangular} from "ngx-restangular";
 import {NavController, ToastController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";

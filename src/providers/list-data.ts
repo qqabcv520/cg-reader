@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Restangular} from "ng2-restangular";
+import {Restangular} from "ngx-restangular";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
@@ -86,13 +86,11 @@ export class ListDataService {
         this.offset = 0;
         let ob = this.restangular.getList({offset: this.offset, limit: this.limit});
         ob.subscribe((result: Array<IArticle>) => {
-            console.log(result);
             this.articles.splice(0, this.articles.length);
             // this.articles.concat(result);
             for (let article of result) {
                 this.articles.push(article);
             }
-            console.log(this.articles);
             this.isOver = false;
             this.offset += this.limit;
         });
@@ -119,7 +117,7 @@ export interface ITag {
     name: string;
 }
 
-export interface ICollection{
+export interface ICollection {
     id?: number;
     title: string;
     titleImg?: string;
