@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MenuController, NavController, NavParams, Refresher} from 'ionic-angular';
-import {Restangular} from "ngx-restangular";
+import {Restangular} from "ng2-restangular";
 import {IArticle, ListDataProvider, ListDataService} from "../../providers/list-data";
 import {ContentPage} from "../content/content";
 

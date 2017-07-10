@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {ListDataProvider} from "../../providers/list-data";
-import {Restangular} from "ngx-restangular";
+import {Restangular} from "ng2-restangular";
 /**
  * Created by 米饭 on 2017-04-17.
  */

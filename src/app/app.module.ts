@@ -19,7 +19,7 @@ import UserService from "../providers/user.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {ContentPage} from "../pages/content/content";
 import {ListDataProvider} from "../providers/list-data";
-import {RestangularModule} from "ngx-restangular";
+import {RestangularModule} from "ng2-restangular";
 
 @NgModule({
     declarations: [

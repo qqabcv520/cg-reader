@@ -3,7 +3,7 @@ import {Content, NavController, Refresher, MenuController} from "ionic-angular";
 import {ContentPage} from "../content/content";
 import {IArticle, ListDataProvider, ListDataService} from "../../providers/list-data";
 import {SplashScreen} from "@ionic-native/splash-screen";
-import {Restangular} from "ngx-restangular";
+import {Restangular} from "ng2-restangular";
 
 @Component({
     selector: 'page-home',

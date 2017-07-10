@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Restangular} from "ngx-restangular";
+import {Restangular} from "ng2-restangular";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavParams, ToastController} from "ionic-angular";
-import {Restangular} from "ngx-restangular";
+import {Restangular} from "ng2-restangular";
 import {IArticle, ICollection} from "../../providers/list-data";
 import LocalStorageService from "../../providers/local-storage.service";
 
